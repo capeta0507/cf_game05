@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扭扭尬舞</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanstc.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./index.js"></script>
+  </head>
+  <body ontouchstart="">
+    <div class="game-view" id="gameView">
+      <div class="layer layer1">
+        <div class="fn-bg sky" id="bgSky"></div>
+        <div class="fn-bg city" id="bgCity"></div>
+      </div>
+      <div class="layer layer2"></div>
+      <div class="layer layer3">
+        <div class="stage" id="bgLight"></div>
+      </div>
+      <div class="layer layer4">
+        <div class="char">
+        </div>
+        <div class="char" id="mainChar" data-speed="stop">
+          <div class="char_main" style="background-image: url(./images/majorStand_0.png)"></div>
+        </div>
+      </div>
+      <div class="layer layer5">
+        <div class="audience-wrapper audience-wrapper--right">
+          <div class="audience-bg"></div>
+        </div>
+        <div class="audience-wrapper audience-wrapper--left">
+          <div class="audience-bg"></div>
+        </div>
+        <div class="audience-wrapper2 audience-wrapper--center">
+          <div class="audience-bg"></div>
+        </div>
+      </div>
+      <div class="layer layer-ui">
+        <div class="timer">
+          <div class="timer-bg" style="background-image: url(./images/timing.png)"></div>
+          <div class="timer-mask">
+            <svg width="200px" height="200px" view="0 0 200px 200px">
+              <g stroke="#3b9be2" stroke-width="100" fill="none">
+                <path id="timerMask" d="M 100 50 A 50 50 0 0 0 100 150 A 50 50 0 0 0 100 50" stroke-dasharray="314.16" stroke-dashoffset="314.16"></path>
+              </g>
+            </svg>
+          </div><span class="digit" id="gameCountDown">20</span>
+        </div>
+        <div class="button" id="mainButton">
+          <div class="btn-img regular" style="background-image: url(./images/gameBar.png)"></div>
+          <div class="btn-img regular" style="background-image: url(./images/gameBarLine.png)"></div>
+          <div class="dance-img heart" style="background-image: url(./images/heart_0.png)"></div>
+          <div class="dance-img center-btn" style="background-image: url(./images/mid.png)"></div>
+          <div class="dance-img left-btn"></div>
+          <div class="dance-img blue-btn" style="background-image: url(./images/blue.png)"></div>
+          <div class="dance-img right-btn"></div>
+          <div class="dance-img red-btn" style="background-image: url(./images/red.png)"></div>
+          <div class="dance-img left-text" style="background-image: url(./images/miss.png)"></div>
+          <div class="dance-img right-text" style="background-image: url(./images/good.png)"></div>
+        </div>
+      </div>
+    </div>
+    <div class="game-overlay" id="startTimer" style="display: none;">
+      <div class="game-overlay-container count-down" id="counter"><span id="timerDigit">3</span></div>
+    </div>
+    <div class="game-overlay" id="gameResultWin" style="display: none">
+      <div class="game-overlay-container result">
+        <div class="image"><img src="./images/win.png"></div>
+        <div class="btn_flex">
+          <button class="button2 login_after">
+            <div class="btn-img regular" style="background-image: url(./images/finish.png)"></div>
+            <div class="btn-img active" style="background-image: url(./images/finish.png)"></div>
+          </button>
+          <button class="button2 backMb"><a>
+              <div class="btn-img regular" style="background-image: url(./images/back_city.png)"></div>
+              <div class="btn-img active" style="background-image: url(./images/back_city_active.png)"></div></a></button>
+        </div>
+      </div>
+    </div>
+    <div class="game-overlay" id="gameResultLose" style="display: none">
+      <div class="game-overlay-container result">
+        <div class="image"><img src="./images/lose.png"></div>
+        <div class="btn_flex">
+          <button class="button2 backMb"><a>
+              <div class="btn-img regular" style="background-image: url(./images/back_city.png)"></div>
+              <div class="btn-img active" style="background-image: url(./images/back_city_active.png)"></div></a></button>
+          <button class="button2 backMb" onclick="restartGame()"><a>
+              <div class="btn-img regular" style="background-image: url(./images/play_again.png)"></div>
+              <div class="btn-img active" style="background-image: url(./images/play_again.png)"></div></a></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
