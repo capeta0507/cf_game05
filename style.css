@@ -2,10 +2,8 @@
 @import "https://fonts.googleapis.com/earlyaccess/notosanstc.css";
 .button {
   position: relative;
-  width: 890px;
-  height: 160px;
-  max-width: 120vh;
-  max-height: 20vh;
+  width: 100vh;
+  height: 22vh;
   border: none;
   outline: none;
   background: none;
@@ -15,11 +13,40 @@
   touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+.layer-ui .button {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 21%;
+  transform: translateY(50%);
+}
+@media screen and (max-width: 1200px){
+  .button{
+    width: 84vh;
+    height: 18vh;
+  }
+}
+@media screen and (orientation: portrait) {
+  .button {
+    width: 100%;
+    max-width: 100%;
+  }
+  .layer-ui .button{
+    bottom: 26%;
+  }
+}
 @media screen and (max-aspect-ratio: 2/3) {
   .button {
     width: 100%;
     max-width: 100%;
   }
+}
+.button .gameBar{
+  background-image: url(./images/gameBar.png);
+}
+.button .gameBarLine{
+  background-image: url(./images/gameBarLine.png);
 }
 .button .btn-img {
   position: absolute;
@@ -44,7 +71,7 @@
   height: 66%;
   background-image: url(./images/blueBtn.png);
   left: 4%;
-  top: 35%;
+  top: 31%;
   cursor: pointer;
 }
 .button .left-btn:hover{
@@ -54,13 +81,13 @@
   width: 10.7%;
   height: 66%;
   left: 20%;
-  top: 35%;
+  top: 31%;
 }
 .button .red-btn {
   width: 10.7%;
   height: 66%;
   right: 20%;
-  top: 35%;
+  top: 31%;
   cursor: pointer;
 }
 .button .right-btn {
@@ -68,7 +95,7 @@
   height: 66%;
   background-image: url(./images/redBtn.png);
   right: 4%;
-  top: 35%;
+  top: 31%;
   cursor: pointer;
 }
 .button .right-btn:hover{
@@ -78,7 +105,7 @@
   width: 10.7%;
   height: 66%;
   left: 44%;
-  top: 35%;
+  top: 31%;
 }
 .button .heart {
   width: 10.7%;
@@ -108,9 +135,9 @@
   right: 0;
   margin: 0 auto;
   width: 500px;
-  max-width: 45vh;
+  max-width: 43vh;
   height: 500px;
-  max-height: 45vh;
+  max-height: 43vh;
 }
 .layer-ui .timer .timer-bg {
   width: 100%;
@@ -152,14 +179,6 @@
   text-align: center;
   left: 0;
   right: 0;
-}
-.layer-ui .button {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  bottom: 23%;
-  transform: translateY(50%);
 }
 
 .game-overlay {
@@ -212,31 +231,26 @@
     width: 50%;
   }
 }
-@media screen and (max-aspect-ratio: 2/3) {
-  .game-overlay .result .image {
-    width: 86%;
-    height: auto;
-    max-width: 35vh;
-  }
+@media screen and (orientation: portrait){
   .button .left-btn {
     width: 10.7%;
     height: 66%;
     background-image: url(./images/blueBtn.png);
     left: 4%;
-    top: 26%;
+    top: 30%;
     cursor: pointer;
   }
   .button .blue-btn {
     width: 10.7%;
     height: 66%;
     left: 20%;
-    top: 26%;
+    top: 30%;
   }
   .button .red-btn {
     width: 10.7%;
     height: 66%;
     right: 20%;
-    top: 26%;
+    top: 30%;
     cursor: pointer;
   }
   .button .right-btn {
@@ -244,32 +258,98 @@
     height: 66%;
     background-image: url(./images/redBtn.png);
     right: 4%;
-    top: 26%;
+    top: 30%;
     cursor: pointer;
   }
   .button .center-btn {
     width: 10.7%;
     height: 66%;
     left: 44%;
-    top: 26%;
+    top: 30%;
   }
   .button .heart {
     width: 10.7%;
     height: 66%;
     left: 44%;
-    top: 4%;
+    top: 0%;
+  }
+  .button .left-text {
+    width: 10.7%;
+    height: 66%;
+    left: 4%;
+    top: -13%;
+  }
+  .button .right-text {
+    width: 10.7%;
+    height: 66%;
+    right: 4%;
+    top: -13%;
+  }
+}
+@media screen and (max-aspect-ratio: 2/3) {
+  .button .gameBar{
+    background-image: url(./images/m_gameBar.png);
+  }
+  .button .gameBarLine{
+    background-image: url(./images/m_gameBarLine.png);
+  }
+  .game-overlay .result .image {
+    width: 86%;
+    height: auto;
+    max-width: 35vh;
+  }
+  .button .left-btn {
+    width: 14%;
+    height: 66%;
+    background-image: url(./images/blueBtn.png);
+    left: 3%;
+    top: 30%;
+    cursor: pointer;
+  }
+  .button .blue-btn {
+    width: 14%;
+    height: 66%;
+    left: 20%;
+    top: 30%;
+  }
+  .button .red-btn {
+    width: 14%;
+    height: 66%;
+    right: 20%;
+    top: 30%;
+    cursor: pointer;
+  }
+  .button .right-btn {
+    width: 14%;
+    height: 66%;
+    background-image: url(./images/redBtn.png);
+    right: 3%;
+    top: 30%;
+    cursor: pointer;
+  }
+  .button .center-btn {
+    width: 14%;
+    height: 66%;
+    left: 41%;
+    top: 30%;
+  }
+  .button .heart {
+    width: 15%;
+    height: 66%;
+    left: 41%;
+    top: -2%;
   }
   .button .left-text {
     width: 15%;
     height: 66%;
     left: 2%;
-    top: -3%;
+    top: -10%;
   }
   .button .right-text {
     width: 15%;
     height: 66%;
     right: 2%;
-    top: -3%;
+    top: -10%;
   }
 }
 .game-overlay .result .image img {
@@ -357,27 +437,9 @@ body {
   color: white;
   font-weight: bold;
 }
-/* .game-overlay .result .image {
-  position: relative;
-  height: 600px;
-  flex-shrink: 1;
-} */
 .game-overlay .result .image img {
   width: 100%;
 }
-/* @media screen and (orientation: portrait) {
-  .game-overlay .result .image img {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    height: 100%;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    object-position: center top;
-  }
-} */
 
 .layer {
   position: absolute;
@@ -461,7 +523,7 @@ body {
   left: calc(50% - 26vh);
   width: 53vh;
   height: 43vh;
-  top: 29%;
+  top: 27%;
   transform-origin: center 80%;
 }
 .layer4 .char .char_rage {
@@ -518,7 +580,7 @@ body {
 .layer3 {
   position: absolute;
   top: 0%;
-  height: 78%;
+  height: 80%;
   width: 100%;
 }
 .layer3 .stage {
@@ -527,7 +589,8 @@ body {
   top: 0;
   left: 0;
   background-image: url("./images/stage.png");
-  background-position: center bottom;
+  background-repeat: repeat-x;
+  background-position: center top;
   background-size: auto 100%;
 }
 
@@ -546,8 +609,10 @@ body {
 .layer5 .audience-wrapper {
   z-index: 0;
   position: absolute;
-  width: 42vh;
-  height: 34vh;
+  width: 23vw;
+  min-width: 300px;
+  height: 23vw;
+  min-height: 300px;
   bottom: 0vh;
 }
 .layer5 .audience-wrapper2 {
@@ -599,7 +664,7 @@ body {
 }
 .layer-ui .count .count_digit {
   position: absolute;
-  top: 25%;
+  top: 27%;
   color: white;
   font-size: 0.75em;
   line-height: 0.75em;
@@ -713,11 +778,23 @@ body {
     width: 50%;
     max-width: 580px;
   }
+  .layer3 {
+    position: absolute;
+    top: 0%;
+    height: 94%;
+    width: 100%;
+  }
 }
 @media (max-width: 1280px){
   .btn_flex {
     width: 50%;
     max-width: 600px;
+  }
+  .layer3 {
+    position: absolute;
+    top: 0%;
+    height: 70%;
+    width: 100%;
   }
 }
 @media (max-width: 1200px){
@@ -757,7 +834,7 @@ body {
     font-size: 6.5vh;
   }
   .layer-ui .button {
-    bottom: 26%;
+    bottom: 25%;
     z-index: 5;
   }
 
@@ -765,41 +842,27 @@ body {
     top: 30%;
   }
 }
-/* @media (max-width: 500px){
-  .button2{
-    max-width: 58vw;
-    max-height: 12vh;
-    margin: 0;
-  }
-}
-@media (max-width: 400px){
-  .button2{
-    max-width: 58vw;
-    max-height: 12vh;
-    margin: 0;
-  }
-} */
 @media screen and (orientation: portrait) {
   .layer4 .char {
     position: absolute;
     left: calc(50% - 22vh);
-    width: 44vh;
-    height: 40vh;
-    top: 30%;
+    width: 43vh;
+    height: 35vh;
+    top: 32%;
   }
 
   .layer5 .audience-wrapper {
-    width: 36vw;
-    min-width: 150px;
-    height: 24vw;
+    width: 30vw;
+    min-width: 130px;
+    height: 38vw;
     min-height: 100px;
     bottom: 0vw;
   }
   .layer5 .audience-wrapper--left {
-    right: 60vw;
+    right: 70vw;
   }
   .layer5 .audience-wrapper--right {
-    left: 60vw;
+    left: 70vw;
   }
 
   .btn_flex {
