@@ -40,6 +40,7 @@
   .button {
     width: 100%;
     max-width: 100%;
+    height: 15vh;
   }
 }
 .button .gameBar{
@@ -287,6 +288,13 @@
   }
 }
 @media screen and (max-aspect-ratio: 2/3) {
+  .layer-ui .timer {
+    max-width: 35vh;
+    max-height: 35vh;
+  }
+  .layer-ui .timer .digit{
+    font-size: 4.5vh;
+  }
   .button .gameBar{
     background-image: url(./images/m_gameBar.png);
   }
@@ -303,20 +311,20 @@
     height: 66%;
     background-image: url(./images/blueBtn.png);
     left: 3%;
-    top: 30%;
+    top: 33%;
     cursor: pointer;
   }
   .button .blue-btn {
     width: 14%;
     height: 66%;
     left: 20%;
-    top: 30%;
+    top: 33%;
   }
   .button .red-btn {
     width: 14%;
     height: 66%;
     right: 20%;
-    top: 30%;
+    top: 33%;
     cursor: pointer;
   }
   .button .right-btn {
@@ -324,32 +332,32 @@
     height: 66%;
     background-image: url(./images/redBtn.png);
     right: 3%;
-    top: 30%;
+    top: 33%;
     cursor: pointer;
   }
   .button .center-btn {
     width: 14%;
     height: 66%;
-    left: 41%;
-    top: 30%;
+    left: 42.5%;
+    top: 33%;
   }
   .button .heart {
     width: 15%;
     height: 66%;
-    left: 41%;
-    top: -2%;
+    left: 42%;
+    top: -5%;
   }
   .button .left-text {
     width: 15%;
     height: 66%;
     left: 2%;
-    top: -10%;
+    top: -15%;
   }
   .button .right-text {
     width: 15%;
     height: 66%;
     right: 2%;
-    top: -10%;
+    top: -15%;
   }
 }
 .game-overlay .result .image img {
@@ -472,13 +480,6 @@ body {
   background-position: center bottom;
   background-size: auto 100%;
 }
-.layer1 .stage {
-  top: 0;
-  left: 0;
-  background-image: url("./images/stage.png");
-  background-position: center bottom;
-  background-size: auto 100%;
-}
 
 .layer2 {
   top: 43%;
@@ -588,10 +589,62 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  background-image: url("./images/stage.png");
+  background-image: url("./images/stage_noLight.png");
   background-repeat: repeat-x;
   background-position: center top;
   background-size: auto 100%;
+}
+.layerlight{
+  position: absolute;
+  top: 18%;
+  height: 50%;
+  width: 100%;
+}
+.layerlight .stageLight01 {
+  width: 20%;
+  height: 100%;
+  top: 0%;
+  left: 45%;
+  position: absolute;
+  background-image: url("./images/light01.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+.layerlight .stageLight02 {
+  width: 20%;
+  height: 100%;
+  top: 0;
+  left: 56%;
+  position: absolute;
+  background-image: url("./images/light02.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+.layerlight .stageLight03 {
+  width: 20%;
+  height: 100%;
+  top: 0;
+  left: 35%;
+  position: absolute;
+  background-image: url("./images/light01.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center top;
+  transform:rotateY(-180deg);
+}
+.layerlight .stageLight04 {
+  width: 20%;
+  height: 100%;
+  top: 0;
+  left: 24%;
+  position: absolute;
+  background-image: url("./images/light02.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center top;
+  transform:rotateY(-180deg);
 }
 
 @keyframes swap-2-frames {
@@ -809,6 +862,9 @@ body {
     width: 280px;
     margin-top: -5px;
   }
+  .layer3{
+    top: 5%;
+  }
   .layer5 .audience-wrapper2 {
     display: none;
   }
@@ -826,6 +882,54 @@ body {
     background-size: 100% auto;
   }
 }
+@media screen and (orientation: portrait){
+  .layerlight .stageLight01 {
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 5%;
+    position: absolute;
+    background-image: url("./images/light01.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+  .layerlight .stageLight02 {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 20%;
+    position: absolute;
+    background-image: url("./images/light02.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+  .layerlight .stageLight03 {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -5%;
+    position: absolute;
+    background-image: url("./images/light01.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    transform:rotateY(-180deg);
+  }
+  .layerlight .stageLight04 {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -20%;
+    position: absolute;
+    background-image: url("./images/light02.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    transform:rotateY(-180deg);
+  }
+}
 @media screen and (max-aspect-ratio: 2/3) {
   .layer-ui .count {
     left: 2vh;
@@ -834,35 +938,81 @@ body {
     font-size: 6.5vh;
   }
   .layer-ui .button {
-    bottom: 25%;
+    bottom: 27%;
     z-index: 5;
   }
 
   .layer4 .char {
     top: 30%;
   }
+  .layerlight .stageLight01 {
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 6%;
+    position: absolute;
+    background-image: url("./images/light01.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+  .layerlight .stageLight02 {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 16%;
+    position: absolute;
+    background-image: url("./images/light02.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+  .layerlight .stageLight03 {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -6%;
+    position: absolute;
+    background-image: url("./images/light01.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    transform:rotateY(-180deg);
+  }
+  .layerlight .stageLight04 {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -16%;
+    position: absolute;
+    background-image: url("./images/light02.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    transform:rotateY(-180deg);
+  }
 }
 @media screen and (orientation: portrait) {
   .layer4 .char {
     position: absolute;
     left: calc(50% - 22vh);
-    width: 43vh;
-    height: 35vh;
-    top: 32%;
+    width: 44vh;
+    height: 41vh;
+    top: 23%;
   }
 
   .layer5 .audience-wrapper {
-    width: 30vw;
+    width: 38vw;
     min-width: 130px;
     height: 38vw;
     min-height: 100px;
     bottom: 0vw;
   }
   .layer5 .audience-wrapper--left {
-    right: 70vw;
+    right: 62vw;
   }
   .layer5 .audience-wrapper--right {
-    left: 70vw;
+    left: 62vw;
   }
 
   .btn_flex {
