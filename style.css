@@ -610,6 +610,8 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center top;
+  /* animation: swapRight1 1000ms infinite alternate ease-in-out; */
+  transform-origin: right top;
 }
 .layerlight .stageLight02 {
   width: 20%;
@@ -621,38 +623,72 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center top;
+  transform-origin: right top;
+  /* animation: swapRight2 1000ms infinite alternate ease-in-out;
+  animation-delay: -4200ms; */
 }
 .layerlight .stageLight03 {
   width: 20%;
   height: 100%;
   top: 0;
-  left: 35%;
+  left: 15%;
+  /* left: 17%; */
   position: absolute;
   background-image: url("./images/light01.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center top;
+  /* animation: swapLeft1 1000ms infinite alternate ease-in-out;
+  animation-delay: -5200ms; */
   transform:rotateY(-180deg);
+  transform-origin: right top;
 }
 .layerlight .stageLight04 {
   width: 20%;
   height: 100%;
   top: 0;
-  left: 24%;
+  left: 4%;
   position: absolute;
   background-image: url("./images/light02.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center top;
   transform:rotateY(-180deg);
+  transform-origin: right top;
+  /* animation: swapLeft2 1000ms infinite alternate ease-in-out;
+  animation-delay: -3200ms; */
 }
 
-@keyframes swap-2-frames {
-  0% {
-    background-position: center 0;
+@keyframes swapRight1 {
+  from {
+    transform: rotate(-25deg);
   }
-  50% {
-    background-position: center 100%;
+  to {
+    transform: rotate(20deg);
+  }
+}
+@keyframes swapRight2 {
+  from {
+    transform: rotate(-5deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+@keyframes swapLeft1 {
+  from {
+    transform: rotate(-35deg);
+  }
+  to {
+    transform: rotate(-60deg);
+  }
+}
+@keyframes swapLeft2 {
+  from {
+    transform: rotate(-55deg);
+  }
+  to {
+    transform: rotate(-100deg);
   }
 }
 .layer5 {
@@ -855,6 +891,30 @@ body {
     width: 60%;
     max-width: 650px;
   }
+  .layerlight .stageLight01 {
+    width: 20%;
+    height: 100%;
+    top: -6%;
+    left: 48%;
+  }
+  .layerlight .stageLight02 {
+    width: 20%;
+    height: 100%;
+    top: -6%;
+    left: 62%;
+  }
+  .layerlight .stageLight03 {
+    width: 20%;
+    height: 100%;
+    top: -6%;
+    left: 12%;
+  }
+  .layerlight .stageLight04 {
+    width: 20%;
+    height: 100%;
+    top: -5%;
+    left: -1%;
+  }
 }
 @media (max-width: 992px){
   .btn_flex {
@@ -888,46 +948,24 @@ body {
     height: 100%;
     top: 0%;
     left: 5%;
-    position: absolute;
-    background-image: url("./images/light01.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center top;
   }
   .layerlight .stageLight02 {
     width: 100%;
     height: 100%;
     top: 0;
     left: 20%;
-    position: absolute;
-    background-image: url("./images/light02.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center top;
   }
   .layerlight .stageLight03 {
     width: 100%;
     height: 100%;
     top: 0;
-    left: -5%;
-    position: absolute;
-    background-image: url("./images/light01.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center top;
-    transform:rotateY(-180deg);
+    left: -105%;
   }
   .layerlight .stageLight04 {
     width: 100%;
     height: 100%;
     top: 0;
-    left: -20%;
-    position: absolute;
-    background-image: url("./images/light02.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center top;
-    transform:rotateY(-180deg);
+    left: -120%;
   }
 }
 @media screen and (max-aspect-ratio: 2/3) {
@@ -950,46 +988,26 @@ body {
     height: 100%;
     top: 0%;
     left: 6%;
-    position: absolute;
-    background-image: url("./images/light01.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center top;
   }
   .layerlight .stageLight02 {
     width: 100%;
     height: 100%;
     top: 0;
     left: 16%;
-    position: absolute;
-    background-image: url("./images/light02.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center top;
   }
   .layerlight .stageLight03 {
     width: 100%;
     height: 100%;
     top: 0;
-    left: -6%;
-    position: absolute;
-    background-image: url("./images/light01.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center top;
-    transform:rotateY(-180deg);
+    /* left: -6%; */
+    left: -106%;
   }
   .layerlight .stageLight04 {
     width: 100%;
     height: 100%;
     top: 0;
-    left: -16%;
-    position: absolute;
-    background-image: url("./images/light02.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center top;
-    transform:rotateY(-180deg);
+    /* left: -16%; */
+    left: -120%;
   }
 }
 @media screen and (orientation: portrait) {
