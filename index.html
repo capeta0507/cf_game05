@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>尬舞扭扭</title>
+    <title>2020中壽全民運動季-STAGE5尬舞扭扭</title>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanstc.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./lib/howler.min.js"></script>
     <script src="./index.js"></script>
   </head>
   <body ontouchstart="">
@@ -15,31 +16,37 @@
         <div class="fn-bg sky" id="bgSky"></div>
         <div class="fn-bg city" id="bgCity"></div>
       </div>
-      <div class="layer layer2"></div>
-      <div class="layer layerlight">
-        <div class="stageLight01"></div>
-        <div class="stageLight02"></div>
-        <div class="stageLight03"></div>
-        <div class="stageLight04"></div>
+      <div class="layer layer2">
+        <div class="fn-bg stage" id="bgLight"></div>
       </div>
       <div class="layer layer3">
-        <div class="stage" id="bgLight"></div>
+        <div class="light-container">
+          <div class="stage-light"><img src="./images/stage-light.svg"></div>
+          <div class="stage-light"><img src="./images/stage-light.svg"></div>
+          <div class="stage-light"><img src="./images/stage-light.svg"></div>
+          <div class="stage-light"><img src="./images/stage-light.svg"></div>
+        </div>
+        <div class="structure">
+          <div class="speaker"></div>
+          <div class="speaker"></div>
+          <div class="speaker"></div>
+          <div class="speaker"></div>
+        </div>
       </div>
       <div class="layer layer4">
-        <div class="char">
-        </div>
-        <div class="char" id="mainChar" data-speed="stop">
-          <div class="char_main" style="background-image: url(./images/majorStand_0.png)"></div>
+        <div class="char" id="char">
+          <div class="left"></div>
+          <div class="right"></div>
         </div>
       </div>
       <div class="layer layer5">
+        <div class="audience-wrapper2 audience-wrapper--center">
+          <div class="audience-bg"></div>
+        </div>
         <div class="audience-wrapper audience-wrapper--right">
           <div class="audience-bg"></div>
         </div>
         <div class="audience-wrapper audience-wrapper--left">
-          <div class="audience-bg"></div>
-        </div>
-        <div class="audience-wrapper2 audience-wrapper--center">
           <div class="audience-bg"></div>
         </div>
       </div>
@@ -54,22 +61,34 @@
             </svg>
           </div><span class="digit" id="gameCountDown">20</span>
         </div>
-        <div class="button" id="mainButton">
-          <div class="btn-img gameBar"></div>
-          <div class="btn-img gameBarLine"></div>
-          <div class="dance-img heart" style="background-image: url(./images/heart_0.png)"></div>
-          <div class="dance-img center-btn" style="background-image: url(./images/mid.png)"></div>
-          <div class="dance-img left-btn"></div>
-          <div class="dance-img blue-btn" style="background-image: url(./images/blue.png)"></div>
-          <div class="dance-img right-btn"></div>
-          <div class="dance-img red-btn" style="background-image: url(./images/red.png)"></div>
-          <div class="dance-img left-text" style="background-image: url(./images/miss.png)"></div>
-          <div class="dance-img right-text" style="background-image: url(./images/good.png)"></div>
+        <div class="sound" id="startGameButton">
+          <div class="icon icon-on"></div>
+          <div class="icon icon-off">
+            <div class="cursor"></div>
+            <div class="cursor-text"></div>
+          </div>
+        </div>
+        <div class="game-panel">
+          <div class="dynamic-area">
+            <div class="arrow-button left-arrow-button" id="leftButton"></div>
+            <div class="arrow-button right-arrow-button" id="rightButton"></div>
+            <div class="area area-left">
+              <div class="point"></div>
+            </div>
+            <div class="area area-right">
+              <div class="point"></div>
+            </div>
+            <div class="music-icon"></div>
+            <div class="heart-wrapper">
+              <div class="heart"></div>
+              <div class="heart"></div>
+              <div class="heart"></div>
+              <div class="heart"></div>
+              <div class="heart"></div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="game-overlay" id="startTimer">
-      <div class="game-overlay-container count-down" id="counter"><span id="timerDigit">3</span></div>
     </div>
     <div class="game-overlay" id="gameResultWin" style="display: none">
       <div class="game-overlay-container result">
