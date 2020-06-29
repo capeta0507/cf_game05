@@ -199,6 +199,10 @@ function animate(time, period) {
 		$('.speaker').css('transform', 'scale(' + scale + ')');
 	}
 
+	if (trackTime > 3.45 && (trackTime - 3.45) % 1.1 < 0.03) {
+		danceLeft();
+		danceRight()
+	}
 
 
 	game.data.leftButtonClicked = false;
@@ -269,14 +273,38 @@ function gameInit() {
 	gameCountDown();
 }
 
+var danceLeftTimeout = false;
+function danceLeft() {
+	if (danceLeftTimeout) return
+	danceLeftTimeout = true
+
+	var act = ["", "act1", "act2"][Math.floor(Math.random() * 3)];
+	$('#char .left').addClass(act);
+	setTimeout(function () {
+		$('#char .left').removeClass('act1 act2');
+		danceLeftTimeout = false
+	}, 300);
+}
+
+var danceRightTimeout = false;
+function danceRight() {
+	if (danceRightTimeout) return
+	danceRightTimeout = true
+
+	var act = ["", "act1", "act2"][Math.floor(Math.random() * 3)];
+	$('#char .right').addClass(act);
+	setTimeout(function () {
+		$('#char .right').removeClass('act1 act2');
+		danceRightTimeout = false
+	}, 300);
+}
+
 function handleClickLeftButton() {
 	if (game.data.leftButtonFreeze <= 0) {
 		game.data.leftButtonClicked = true;
 		$('#leftButton').addClass('active');
-		$('#char .left').addClass('active')
 		setTimeout(function () {
-			$('#leftButton').removeClass('active')
-			$('#char .left').removeClass('active');
+			$('#leftButton').removeClass('active');
 		}, 150);
 	}
 	game.data.leftButtonFreeze = 200;
@@ -286,10 +314,8 @@ function handleClickRightButton() {
 	if (game.data.rightButtonFreeze <= 0) {
 		game.data.rightButtonClicked = true;
 		$('#rightButton').addClass('active');
-		$('#char .right').addClass('active')
 		setTimeout(function () {
-			$('#rightButton').removeClass('active')
-			$('#char .right').removeClass('active');
+			$('#rightButton').removeClass('active');
 		}, 150);
 	}
 	game.data.rightButtonFreeze = 200;

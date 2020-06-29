@@ -408,10 +408,10 @@ body {
   position: absolute;
   height: 45vh;
   width: 45vh;
-  background-image: url(./images/char.png);
-  background-size: auto 100%;
+  background-image: url(./images/char-sprite.png);
+  background-size: auto 400%;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center 100%;
 }
 .layer4 .char .left,
 .layer4 .char .right {
@@ -428,10 +428,18 @@ body {
   top: 0;
   width: 200%;
   height: 100%;
-  background-image: url(./images/char_sprite.png);
-  background-size: auto 200%;
+  background-image: url(./images/char-sprite.png);
+  background-size: auto 400%;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center calc(100% / 3 * 2);
+}
+.layer4 .char .left.act1:before,
+.layer4 .char .right.act1:before {
+  background-position: center calc(100% / 3 * 0);
+}
+.layer4 .char .left.act2:before,
+.layer4 .char .right.act2:before {
+  background-position: center calc(100% / 3 * 1);
 }
 .layer4 .char .left {
   right: 50%;
@@ -440,18 +448,12 @@ body {
   left: 0;
   will-change: background;
 }
-.layer4 .char .left.active:before {
-  background-position: center bottom;
-}
 .layer4 .char .right {
   left: 50%;
 }
 .layer4 .char .right:before {
   right: 0;
   will-change: background;
-}
-.layer4 .char .right.active:before {
-  background-position: center bottom;
 }
 
 .layer5 {
