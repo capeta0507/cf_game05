@@ -159,6 +159,8 @@ function animate(time, period) {
 			if (!beat.result) {
 				beat.result = $('<div class="miss"/>');
 				game.life--
+				$('.emoji').addClass('miss');
+				setTimeout(function () { $('.emoji').removeClass('miss') }, 300)
 
 				$('.heart').eq(game.life).addClass('heart-off');
 
@@ -199,9 +201,17 @@ function animate(time, period) {
 		$('.speaker').css('transform', 'scale(' + scale + ')');
 	}
 
-	if (trackTime > 3.45 && (trackTime - 3.45) % 1.1 < 0.03) {
-		danceLeft();
-		danceRight()
+	if (trackTime > 2.35 && (trackTime - 2.35) % 0.55 < 0.03) {
+		var rand = Math.random();
+		if (!danceLTimeout && !danceRTimeout) {
+			danceLeft();
+			danceRight();
+			if (rand > 0.5) {
+				$('#char').css('transform', 'translateX(-15%) rotate(-5deg)');
+			} else {
+				$('#char').css('transform', 'translateX(15%) rotate(5deg)');
+			}
+		}
 	}
 
 
@@ -273,29 +283,33 @@ function gameInit() {
 	gameCountDown();
 }
 
-var danceLeftTimeout = false;
+var danceLTimeout = false;
+var danceRTimeout = false;
+var ACT_TYPES = ["act1", "act2", ""];
 function danceLeft() {
-	if (danceLeftTimeout) return
-	danceLeftTimeout = true
+	if (danceLTimeout) return
+	danceLTimeout = true
 
-	var act = ["", "act1", "act2"][Math.floor(Math.random() * 3)];
+	var act = ACT_TYPES[Math.floor(Math.random() * ACT_TYPES.length)];
 	$('#char .left').addClass(act);
 	setTimeout(function () {
 		$('#char .left').removeClass('act1 act2');
-		danceLeftTimeout = false
+		$('#char').css('transform', 'translateX(0) rotate(0deg)');
+		danceLTimeout = false
 	}, 300);
 }
 
-var danceRightTimeout = false;
-function danceRight() {
-	if (danceRightTimeout) return
-	danceRightTimeout = true
 
-	var act = ["", "act1", "act2"][Math.floor(Math.random() * 3)];
+function danceRight() {
+	if (danceRTimeout) return
+	danceRTimeout = true
+
+	var act = ACT_TYPES[Math.floor(Math.random() * ACT_TYPES.length)];
 	$('#char .right').addClass(act);
 	setTimeout(function () {
 		$('#char .right').removeClass('act1 act2');
-		danceRightTimeout = false
+		$('#char').css('transform', 'translateX(0) rotate(0)');
+		danceRTimeout = false
 	}, 300);
 }
 

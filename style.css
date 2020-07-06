@@ -404,6 +404,20 @@ body {
   justify-content: center;
   align-items: center;
 }
+.layer4 .char.shadow-container {
+  background: none;
+}
+.layer4 .char.shadow-container .char-shadow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 82%;
+  width: 81%;
+  height: 18%;
+  background: #ff6666;
+  border-radius: 50%;
+}
 .layer4 .char {
   position: absolute;
   height: 45vh;
@@ -412,6 +426,9 @@ body {
   background-size: auto 400%;
   background-repeat: no-repeat;
   background-position: center 100%;
+  transform-origin: center -50%;
+  transition: transform 100ms;
+  will-change: transform;
 }
 .layer4 .char .left,
 .layer4 .char .right {
@@ -431,11 +448,11 @@ body {
   background-image: url(./images/char-sprite.png);
   background-size: auto 400%;
   background-repeat: no-repeat;
-  background-position: center calc(100% / 3 * 2);
+  background-position: center calc(100% / 3 * 0);
 }
 .layer4 .char .left.act1:before,
 .layer4 .char .right.act1:before {
-  background-position: center calc(100% / 3 * 0);
+  background-position: center calc(100% / 3 * 2);
 }
 .layer4 .char .left.act2:before,
 .layer4 .char .right.act2:before {
@@ -454,6 +471,20 @@ body {
 .layer4 .char .right:before {
   right: 0;
   will-change: background;
+}
+.layer4 .char .emoji {
+  position: absolute;
+  top: 44%;
+  left: 41.4%;
+  width: 7.2%;
+  height: 7.2%;
+  background-image: url(./images/emoji.png);
+  background-size: auto 200%;
+  background-position: center bottom;
+  will-change: transform;
+}
+.layer4 .char .emoji.miss {
+  background-position: center top;
 }
 
 .layer5 {
